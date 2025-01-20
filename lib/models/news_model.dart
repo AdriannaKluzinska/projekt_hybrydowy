@@ -12,7 +12,7 @@ class NewsArticle {
   String title;
   String description;
   String url;
-  String urlTo;
+  String? urlToImage;
   String content;
   DateTime publishedAt;
 
@@ -22,7 +22,7 @@ class NewsArticle {
     required this.title,
     required this.description,
     required this.url,
-    required this.urlTo,
+    this.urlToImage,
     required this.content,
     required this.publishedAt,
   });
@@ -30,12 +30,13 @@ class NewsArticle {
   factory NewsArticle.fromJson(Map<String, dynamic> json) =>
       NewsArticle(
           source: Source.fromJson(json["source"]),
+          author: json["author"],
           title: json["title"],
           description: json["description"],
           url: json["url"],
-          urlTo: json["urlTo"],
+          urlToImage: json["urlToImage"],
+          publishedAt: DateTime.parse(json["publishedAt"]),
           content: json["content"],
-          publishedAt: DateTime.parse(json["publishedAt"])
       );
 }
 

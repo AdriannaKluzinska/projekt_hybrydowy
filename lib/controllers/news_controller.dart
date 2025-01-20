@@ -8,6 +8,7 @@ class NewsController extends GetxController {
 
   @override
   void onInit() {
+    fetchArticles();
     super.onInit();
   }
 
